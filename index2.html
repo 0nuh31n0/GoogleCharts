@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Markus Koost, Tony Sillart">
+    <title>Tibu õpetab kana</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="index.html">Kodu</a>
+
+  <!--<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>-->
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    </form>
+  </div>
+</nav>
+
+<main role="main" class="container">
+<div class="shadow-none p-3 mb-5 bg-light rounded">
+  <div class="starter-template">
+    <h1>Inimeste üldised IT-alased teadmised</h1>
+    <p class="lead">
+      Oleme Kuressaare Ametikooli tarkvaraarendaja eriala õpilased ja viisime läbi küsitluse erinevate inimeste IT-teadlikuse osas.<br>
+      Küsitlus oli koostatud selleks, et koostada paremini meie õpilasfirma õppekava.</p>
+  </div>
+</div>
+
+</main><!-- /.container -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+
+    <!--Load the AJAX API--> 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script type="text/javascript"> 
+     
+    // Load the Visualization API and the piechart package. 
+    google.charts.load('current', {'packages':['corechart']}); 
+       
+    // Set a callback to run when the Google Visualization API is loaded. 
+    google.charts.setOnLoadCallback(drawChart6); 
+
+    function drawChart6(radio) { 
+      var jsonData = $.ajax({ 
+          url: "getData6.php", 
+          method: "POST", 
+          data: { 
+            action: radio 
+          }, 
+          dataType: "json", 
+          async: false 
+          }).responseText; 
+           
+      // Create our data table out of JSON data loaded from server. 
+      var data = new google.visualization.DataTable(jsonData); 
+
+      // Instantiate and draw our chart, passing in some options. 
+      var chart = new google.visualization.PieChart(document.getElementById('chart_div6')); 
+      chart.draw(data, {width: 400, height: 240}); 
+    } 
+
+    $('input[name=radio]').click(function () { 
+      var radio = $(this).val(); 
+
+      drawChart6(radio);
+    }); 
+
+    </script> 
+  </head> 
+
+  <body> 
+    <!--Div that will hold the pie chart--> 
+    <div>
+      <center>
+        <h4>Milliseid omadusi ootavad inimesed, neid koolitavalt õpilaselt</h4>
+      </center>
+    </div>
+    <div id="chart_div6" align="center" class="shadow-sm p-3 mb-5 bg-white rounded"></div>
+    <div>
+      <center>
+        <h4>Kuidas eelistavad inimesed õppida</h4>
+        <br>
+        <p>35,5% vastasid individuaalselt</p>
+        <p>12,5% vastasid, et eelistavad õppida paari sõbraga koos</p>
+        <p>51,9% vastasid suures grupis</p>
+      </center>
+    </div>
+    <div align="center" class="shadow-sm p-3 mb-5 bg-white rounded"></div>
+
+    <div>
+      <center>
+        <h4>Sobiva õppetunni pikkus, vastajate arvates</h4>
+        <br>
+        <p>60,8% vastasid alla 30 min.</p>
+        <p>21,6% vastasid 0,5 - 1h</p>
+        <p>9,8% vastasid 1 - 1,5h</p>
+      </center>
+    </div>
+    <div id="chart_div9" align="center" class="shadow-sm p-3 mb-5 bg-white rounded"></div>
+
+    <div>
+      <center>
+        <h4>Kui palju on inimesed nõus selle eest maksma</h4>
+        <br>
+        <br>
+        <p>20,2% vastasid üldse mitte</p>
+        <p>12,3% vastasid 1€</p>
+        <p>6,9% vastasid 2€</p>
+        <p>21,5% vastasid 3€</p>
+        <p>18,9% vastasid rohkem kui 3€</p>
+      </center>
+    </div>
+    <div id="chart_div10" align="center" class="shadow-sm p-3 mb-5 bg-white rounded"></div>
+
+
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="index.html">Eelmine</a></li>
+        <li class="page-item"><a class="page-link" href="index.html">1</a></li>
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">
+              2
+              <span class="sr-only">(current)</span>
+            </span>
+        </li>
+       <li class="page-item"><a class="page-link" href="index2.html">Järgmine</a></li>
+      </ul>
+      </ul>
+    </nav>
+  </body> 
+</html>
